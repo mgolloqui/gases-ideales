@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario Graduado: Gases Ideales - 1.º Bachillerato</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax for rendering LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen pb-12">
+
+    <!-- Header Section -->
+    <header class="bg-indigo-900 text-white py-8 px-4 shadow-md">
+        <div class="max-w-4xl mx-auto">
+            <span class="inline-block bg-indigo-700 text-indigo-100 text-xs px-3 py-1 rounded-full font-semibold uppercase tracking-wider mb-2">
+                Física y Química • 1.º Bachillerato
+            </span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                Cuestionario Graduado: Gases Ideales
+            </h1>
+            <p class="mt-2 text-indigo-200 text-base sm:text-lg">
+                Resuelve los 8 ejercicios. Puedes comprobar tu respuesta y ver la resolución paso a paso justo después de responder a cada uno de ellos.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-4xl mx-auto px-4 mt-8">
+
+        <!-- Formulario de repaso rápido -->
+        <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 mb-8">
+            <h2 class="text-xl font-bold text-indigo-900 mb-4 flex items-center gap-2">
+                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+                Resumen de Ecuaciones Clave
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-sm bg-slate-50 p-4 rounded-lg border border-slate-100">
+                <div>
+                    <strong class="text-indigo-800">Ecuación General:</strong>
+                    <p class="mt-1">$P \cdot V = n \cdot R \cdot T$</p>
+                </div>
+                <div>
+                    <strong class="text-indigo-800">Densidad de un Gas:</strong>
+                    <p class="mt-1">$d = \frac{P \cdot M}{R \cdot T}$</p>
+                </div>
+                <div>
+                    <strong class="text-indigo-800">Masa Molar:</strong>
+                    <p class="mt-1">$M = \frac{m \cdot R \cdot T}{P \cdot V}$</p>
+                </div>
+                <div>
+                    <strong class="text-indigo-800">Ley de Dalton:</strong>
+                    <p class="mt-1">$P_{\text{total}} = \sum P_i = n_{\text{tot}} \frac{RT}{V}$</p>
+                </div>
+                <div>
+                    <strong class="text-indigo-800">Gas sobre Agua:</strong>
+                    <p class="mt-1">$P_{\text{seco}} = P_{\text{total}} - P_{\text{vapor}}$</p>
+                </div>
+                <div>
+                    <strong class="text-indigo-800">Constante R:</strong>
+                    <p class="mt-1">$0{,}082 \; \frac{\text{atm}\cdot\text{L}}{\text{mol}\cdot\text{K}}$</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Form -->
+        <form id="quizForm" class="space-y-8" onsubmit="event.preventDefault();">
+
+            <!-- SECCIÓN 1: NIVEL INICIAL / MEDIO -->
+            <div class="border-l-4 border-emerald-500 pl-4 py-1">
+                <h3 class="text-xl font-bold text-slate-800">Bloque I: Nivel Inicial / Medio</h3>
+                <p class="text-sm text-slate-500">Leyes fundamentales, masa molar, densidad y mezcla básica</p>
+            </div>
+
+            <!-- Ejercicio 1 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded">Ejercicio 1</span>
+                    <span class="text-xs text-slate-500 font-medium">Ley de Boyle-Mariotte</span>
+                </div>
+                <p class="text-slate-800 font-medium mb-4">
+                    Un gas ocupa un volumen de $4\text{ L}$ a una presión de $2\text{ atm}$ mantenida a temperatura constante. Si aumentamos el volumen del recipiente hasta $8\text{ L}$, ¿cuál será la nueva presión ejercida por el gas?
+                </p>
+                <div class="space-y-2 mb-4">
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q1" value="A" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">A) $1\text{ atm}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q1" value="B" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">B) $4\text{ atm}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q1" value="C" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">C) $0{,}5\text{ atm}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q1" value="D" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">D) $2\text{ atm}$</span>
+                    </label>
+                </div>
+
+                <button type="button" onclick="comprobar('q1')" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-150">
+                    Comprobar Ejercicio 1
+                </button>
+
+                <div id="fb-q1" class="hidden mt-4 p-4 rounded-lg border text-sm">
+                    <div id="status-q1" class="font-bold mb-2"></div>
+                    <h4 class="font-bold text-slate-900 mb-1">💡 Procedimiento de resolución:</h4>
+                    <p class="text-slate-700">
+                        A temperatura constante aplicamos la ley de Boyle-Mariotte ($P_1 \cdot V_1 = P_2 \cdot V_2$):<br>
+                        $$2\text{ atm} \cdot 4\text{ L} = P_2 \cdot 8\text{ L} \implies P_2 = \frac{8}{8} = \mathbf{1\text{ atm}}$$
+                    </p>
+                </div>
+            </div>
+
+            <!-- Ejercicio 2 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded">Ejercicio 2</span>
+                    <span class="text-xs text-slate-500 font-medium">Cálculo directo de la Masa Molar</span>
+                </div>
+                <p class="text-slate-800 font-medium mb-4">
+                    Se determina experimentalmente que una muestra de $5\text{ g}$ de un gas desconocido ocupa un volumen de $2{,}8\text{ L}$ a una presión de $1\text{ atm}$ y $27\text{ °C}$. ¿Cuál es la masa molar de dicho gas?
+                </p>
+                <div class="space-y-2 mb-4">
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q2" value="A" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">A) $32\text{ g/mol}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q2" value="B" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">B) $44\text{ g/mol}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q2" value="C" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">C) $28\text{ g/mol}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q2" value="D" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">D) $16\text{ g/mol}$</span>
+                    </label>
+                </div>
+
+                <button type="button" onclick="comprobar('q2')" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-150">
+                    Comprobar Ejercicio 2
+                </button>
+
+                <div id="fb-q2" class="hidden mt-4 p-4 rounded-lg border text-sm">
+                    <div id="status-q2" class="font-bold mb-2"></div>
+                    <h4 class="font-bold text-slate-900 mb-1">💡 Procedimiento de resolución:</h4>
+                    <p class="text-slate-700">
+                        Convertimos $T = 27 + 273 = 300\text{ K}$. Despejamos $M$ de la ecuación de gases ideales ($P \cdot V = \frac{m}{M} \cdot R \cdot T$):<br>
+                        $$M = \frac{m \cdot R \cdot T}{P \cdot V} = \frac{5 \cdot 0{,}082 \cdot 300}{1 \cdot 2{,}8} = \frac{123}{2{,}8} \approx \mathbf{44\text{ g/mol}}$$
+                    </p>
+                </div>
+            </div>
+
+            <!-- Ejercicio 3 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded">Ejercicio 3</span>
+                    <span class="text-xs text-slate-500 font-medium">Cálculo de la Densidad</span>
+                </div>
+                <p class="text-slate-800 font-medium mb-4">
+                    Calcula la densidad del dióxido de carbono ($\text{CO}_2$, $M = 44\text{ g/mol}$) medido a $2\text{ atm}$ de presión y $0\text{ °C}$ de temperatura.
+                </p>
+                <div class="space-y-2 mb-4">
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q3" value="A" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">A) $1{,}96\text{ g/L}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q3" value="B" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">B) $3{,}93\text{ g/L}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q3" value="C" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">C) $0{,}82\text{ g/L}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q3" value="D" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">D) $2{,}45\text{ g/L}$</span>
+                    </label>
+                </div>
+
+                <button type="button" onclick="comprobar('q3')" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-150">
+                    Comprobar Ejercicio 3
+                </button>
+
+                <div id="fb-q3" class="hidden mt-4 p-4 rounded-lg border text-sm">
+                    <div id="status-q3" class="font-bold mb-2"></div>
+                    <h4 class="font-bold text-slate-900 mb-1">💡 Procedimiento de resolución:</h4>
+                    <p class="text-slate-700">
+                        Con $T = 0 + 273 = 273\text{ K}$, aplicamos la fórmula de densidad:<br>
+                        $$d = \frac{P \cdot M}{R \cdot T} = \frac{2 \cdot 44}{0{,}082 \cdot 273} = \frac{88}{22{,}386} \approx \mathbf{3{,}93\text{ g/L}}$$
+                    </p>
+                </div>
+            </div>
+
+            <!-- Ejercicio 4 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded">Ejercicio 4</span>
+                    <span class="text-xs text-slate-500 font-medium">Mezcla Básica de Gases</span>
+                </div>
+                <p class="text-slate-800 font-medium mb-4">
+                    En un recipiente rígido de $5\text{ L}$ a una temperatura constante de $27\text{ °C}$ se introducen $2\text{ moles}$ de $\text{N}_2$ y $3\text{ moles}$ de $\text{O}_2$. ¿Cuál es la presión total ejercida por la mezcla?
+                </p>
+                <div class="space-y-2 mb-4">
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q4" value="A" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">A) $24{,}6\text{ atm}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q4" value="B" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">B) $9{,}84\text{ atm}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q4" value="C" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">C) $14{,}76\text{ atm}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q4" value="D" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">D) $49{,}2\text{ atm}$</span>
+                    </label>
+                </div>
+
+                <button type="button" onclick="comprobar('q4')" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-150">
+                    Comprobar Ejercicio 4
+                </button>
+
+                <div id="fb-q4" class="hidden mt-4 p-4 rounded-lg border text-sm">
+                    <div id="status-q4" class="font-bold mb-2"></div>
+                    <h4 class="font-bold text-slate-900 mb-1">💡 Procedimiento de resolución:</h4>
+                    <p class="text-slate-700">
+                        Calculamos los moles totales $n_{\text{tot}} = 2 + 3 = 5\text{ moles}$. A $T = 300\text{ K}$:<br>
+                        $$P_{\text{total}} = \frac{n_{\text{tot}} \cdot R \cdot T}{V} = \frac{5 \cdot 0{,}082 \cdot 300}{5} = \mathbf{24{,}6\text{ atm}}$$
+                    </p>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 2: NIVEL AVANZADO -->
+            <div class="border-l-4 border-indigo-600 pl-4 py-1 mt-10">
+                <h3 class="text-xl font-bold text-slate-800">Bloque II: Nivel Desafío / Avanzado</h3>
+                <p class="text-sm text-slate-500">Recuento atómico, gases sobre agua, masa media y recipientes comunicados</p>
+            </div>
+
+            <!-- Ejercicio 5 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-2.5 py-1 rounded">Ejercicio 5</span>
+                    <span class="text-xs text-slate-500 font-medium">Átomos y fuga parcial</span>
+                </div>
+                <p class="text-slate-800 font-medium mb-4">
+                    Un recipiente rígido de $12\text{ L}$ contiene propano ($\text{C}_3\text{H}_8$) a $2\text{ atm}$ y $27\text{ °C}$. Se calienta hasta $127\text{ °C}$ y se escapa un $25\%$ de la masa de gas. ¿Cuál es el número total de **átomos de hidrógeno** que quedan dentro del recipiente? ($N_A = 6{,}022 \cdot 10^{23} \text{ mol}^{-1}$)
+                </p>
+                <div class="space-y-2 mb-4">
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q5" value="A" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">A) $4{,}70 \cdot 10^{23}$ átomos</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q5" value="B" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">B) $3{,}52 \cdot 10^{24}$ átomos</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q5" value="C" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">C) $1{,}91 \cdot 10^{24}$ átomos</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q5" value="D" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">D) $5{,}88 \cdot 10^{23}$ átomos</span>
+                    </label>
+                </div>
+
+                <button type="button" onclick="comprobar('q5')" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-150">
+                    Comprobar Ejercicio 5
+                </button>
+
+                <div id="fb-q5" class="hidden mt-4 p-4 rounded-lg border text-sm">
+                    <div id="status-q5" class="font-bold mb-2"></div>
+                    <h4 class="font-bold text-slate-900 mb-1">💡 Procedimiento de resolución:</h4>
+                    <p class="text-slate-700">
+                        1. Moles iniciales: $n_i = \frac{2 \cdot 12}{0{,}082 \cdot 300} = 0{,}9756\text{ moles}$.<br>
+                        2. Queda el $75\%$: $n_f = 0{,}9756 \cdot 0{,}75 = 0{,}7317\text{ moles de } \text{C}_3\text{H}_8$.<br>
+                        3. Átomos de H ($8$ H por molécula):<br>
+                        $$N_{\text{átomos}} = 0{,}7317 \cdot 8 \cdot 6{,}022 \cdot 10^{23} = \mathbf{3{,}52 \cdot 10^{24}\text{ átomos de H}}$$
+                    </p>
+                </div>
+            </div>
+
+            <!-- Ejercicio 6 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-2.5 py-1 rounded">Ejercicio 6</span>
+                    <span class="text-xs text-slate-500 font-medium">Gas sobre Agua</span>
+                </div>
+                <p class="text-slate-800 font-medium mb-4">
+                    Se recogen $450\text{ mL}$ de un gas seco sobre agua a $25\text{ °C}$ y presión barométrica total de $755\text{ mmHg}$. La masa del gas seco es $0{,}82\text{ g}$. Si la presión de vapor de agua a $25\text{ °C}$ es $23{,}8\text{ mmHg}$, determina la masa molar del gas.
+                </p>
+                <div class="space-y-2 mb-4">
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q6" value="A" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">A) $42{,}1\text{ g/mol}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q6" value="B" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">B) $46{,}2\text{ g/mol}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q6" value="C" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">C) $51{,}5\text{ g/mol}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q6" value="D" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">D) $38{,}8\text{ g/mol}$</span>
+                    </label>
+                </div>
+
+                <button type="button" onclick="comprobar('q6')" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-150">
+                    Comprobar Ejercicio 6
+                </button>
+
+                <div id="fb-q6" class="hidden mt-4 p-4 rounded-lg border text-sm">
+                    <div id="status-q6" class="font-bold mb-2"></div>
+                    <h4 class="font-bold text-slate-900 mb-1">💡 Procedimiento de resolución:</h4>
+                    <p class="text-slate-700">
+                        1. Presión del gas seco: $P = 755 - 23{,}8 = 731{,}2\text{ mmHg} = 0{,}9621\text{ atm}$.<br>
+                        2. Aplicamos la fórmula de la masa molar ($V = 0{,}450\text{ L}$, $T = 298\text{ K}$):<br>
+                        $$M = \frac{0{,}82 \cdot 0{,}082 \cdot 298}{0{,}9621 \cdot 0{,}450} \approx \mathbf{46{,}2\text{ g/mol}}$$
+                    </p>
+                </div>
+            </div>
+
+            <!-- Ejercicio 7 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-2.5 py-1 rounded">Ejercicio 7</span>
+                    <span class="text-xs text-slate-500 font-medium">Densidad de Mezclas en Masa</span>
+                </div>
+                <p class="text-slate-800 font-medium mb-4">
+                    Una mezcla gaseosa está compuesta por $40\%$ en masa de Metano ($\text{CH}_4$) y $60\%$ en masa de Dióxido de Carbono ($\text{CO}_2$). ¿Cuál es la densidad de la mezcla a $1{,}2\text{ atm}$ y $0\text{ °C}$? ($M(\text{CH}_4)=16$, $M(\text{CO}_2)=44\text{ g/mol}$)
+                </p>
+                <div class="space-y-2 mb-4">
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q7" value="A" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">A) $1{,}38\text{ g/L}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q7" value="B" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">B) $2{,}18\text{ g/L}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q7" value="C" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">C) $0{,}98\text{ g/L}$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q7" value="D" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">D) $3{,}10\text{ g/L}$</span>
+                    </label>
+                </div>
+
+                <button type="button" onclick="comprobar('q7')" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-150">
+                    Comprobar Ejercicio 7
+                </button>
+
+                <div id="fb-q7" class="hidden mt-4 p-4 rounded-lg border text-sm">
+                    <div id="status-q7" class="font-bold mb-2"></div>
+                    <h4 class="font-bold text-slate-900 mb-1">💡 Procedimiento de resolución:</h4>
+                    <p class="text-slate-700">
+                        1. Para $100\text{ g}$ de mezcla: $n_{\text{tot}} = \frac{40}{16} + \frac{60}{44} = 3{,}864\text{ moles}$.<br>
+                        2. Masa molar media: $\overline{M} = \frac{100}{3{,}864} = 25{,}88\text{ g/mol}$.<br>
+                        3. Densidad: $d = \frac{1{,}2 \cdot 25{,}88}{0{,}082 \cdot 273} \approx \mathbf{1{,}38\text{ g/L}}$.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Ejercicio 8 -->
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-2.5 py-1 rounded">Ejercicio 8</span>
+                    <span class="text-xs text-slate-500 font-medium">Recipientes Comunicados</span>
+                </div>
+                <p class="text-slate-800 font-medium mb-4">
+                    Un recipiente $A$ ($3\text{ L}$) contiene $\text{O}_2$ a $4\text{ atm}$ y $27\text{ °C}$. El recipiente $B$ ($5\text{ L}$) contiene $\text{N}_2$ a $2\text{ atm}$ a igual temperatura. Se abren las llaves comunicantes manteniendo $T = 27\text{ °C}$. ¿Cuál es la presión total final y la fracción molar de $\text{N}_2$?
+                </p>
+                <div class="space-y-2 mb-4">
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q8" value="A" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">A) $P_t = 3{,}0\text{ atm}; \; X_{\text{N}_2} = 0{,}50$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q8" value="B" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">B) $P_t = 2{,}75\text{ atm}; \; X_{\text{N}_2} = 0{,}455$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q8" value="C" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">C) $P_t = 2{,}75\text{ atm}; \; X_{\text{N}_2} = 0{,}545$</span>
+                    </label>
+                    <label class="flex items-start p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                        <input type="radio" name="q8" value="D" class="mt-1 text-indigo-600 focus:ring-indigo-500">
+                        <span class="ml-3 text-sm text-slate-700">D) $P_t = 6{,}0\text{ atm}; \; X_{\text{N}_2} = 0{,}625$</span>
+                    </label>
+                </div>
+
+                <button type="button" onclick="comprobar('q8')" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold py-2 px-4 rounded-lg transition duration-150">
+                    Comprobar Ejercicio 8
+                </button>
+
+                <div id="fb-q8" class="hidden mt-4 p-4 rounded-lg border text-sm">
+                    <div id="status-q8" class="font-bold mb-2"></div>
+                    <h4 class="font-bold text-slate-900 mb-1">💡 Procedimiento de resolución:</h4>
+                    <p class="text-slate-700">
+                        1. Volumen total $V_t = 3 + 5 = 8\text{ L}$.<br>
+                        2. Presiones parciales: $P_{\text{O}_2} = \frac{4 \cdot 3}{8} = 1{,}5\text{ atm}$ y $P_{\text{N}_2} = \frac{2 \cdot 5}{8} = 1{,}25\text{ atm}$.<br>
+                        3. Presión total $P_t = 2{,}75\text{ atm}$ y fracción molar $X_{\text{N}_2} = \frac{1{,}25}{2{,}75} \approx \mathbf{0{,}455}$.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Botón de Evaluación Global -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-between items-center bg-white p-6 rounded-xl shadow-sm border border-slate-200 sticky bottom-4">
+                <button type="button" onclick="comprobarTodos()" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-lg transition duration-200 shadow-md flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 10 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Comprobar Todos los Ejercicios
+                </button>
+                <div id="scoreDisplay" class="hidden text-right font-bold text-lg text-slate-800">
+                    Puntuación Total: <span id="score" class="text-indigo-600 text-2xl">0</span> / 8
+                </div>
+            </div>
+
+        </form>
+
+    </main>
+
+    <!-- Script de Evaluación Individual y Global -->
+    <script>
+        const correctAnswers = {
+            q1: 'A',
+            q2: 'B',
+            q3: 'B',
+            q4: 'A',
+            q5: 'B',
+            q6: 'B',
+            q7: 'A',
+            q8: 'B'
+        };
+
+        function comprobar(q) {
+            const form = document.getElementById('quizForm');
+            const selected = form.querySelector(`input[name="${q}"]:checked`);
+            const feedbackDiv = document.getElementById(`fb-${q}`);
+            const statusDiv = document.getElementById(`status-${q}`);
+            
+            feedbackDiv.classList.remove('hidden');
+
+            if (!selected) {
+                statusDiv.innerHTML = `<span class="text-amber-700">⚠️ No has seleccionado ninguna opción. La opción correcta es la <strong>${correctAnswers[q]}</strong>.</span>`;
+                feedbackDiv.className = "mt-4 p-4 rounded-lg bg-amber-50 border border-amber-200 text-sm text-slate-800";
+                return false;
+            } else if (selected.value === correctAnswers[q]) {
+                statusDiv.innerHTML = `<span class="text-emerald-700">✅ ¡Correcto! Has elegido la opción ${selected.value}.</span>`;
+                feedbackDiv.className = "mt-4 p-4 rounded-lg bg-emerald-50 border border-emerald-200 text-sm text-slate-800";
+                return true;
+            } else {
+                statusDiv.innerHTML = `<span class="text-rose-700">❌ Incorrecto. Has marcado la opción ${selected.value}, pero la respuesta correcta es la <strong>${correctAnswers[q]}</strong>.</span>`;
+                feedbackDiv.className = "mt-4 p-4 rounded-lg bg-rose-50 border border-rose-200 text-sm text-slate-800";
+                return false;
+            }
+
+            if (window.MathJax) {
+                MathJax.typeset();
+            }
+        }
+
+        function comprobarTodos() {
+            let score = 0;
+            for (let q in correctAnswers) {
+                if (comprobar(q)) {
+                    score++;
+                }
+            }
+
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const scoreSpan = document.getElementById('score');
+            scoreSpan.innerText = score;
+            scoreDisplay.classList.remove('hidden');
+
+            if (window.MathJax) {
+                MathJax.typeset();
+            }
+        }
+    </script>
+</body>
+</html>
